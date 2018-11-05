@@ -28,7 +28,7 @@ var app = express();
 // Step 0: create a Guest Issuer Application from https://developer.webex.com/add-guest.html 
 //   - then fill in your Guest Isser App properties below
 //
-var guestId = process.env.GUEST_ID || "Y2lzY29zcGFyazovL3VzL09SR0FOSVpBVElPTi9jMGU0OWU3NS1lMGYwLTRjY2QtOWMzZi04OWE0YTQ2ZDM1ODA";
+var guestId = process.env.GUEST_ISSUER || "Y2lzY29zcGFyazovL3VzL09SR0FOSVpBVElPTi9jMGU0OWU3NS1lMGYwLTRjY2QtOWMzZi04OWE0YTQ2ZDM1ODA";
 var guestSecret = process.env.GUEST_SECRET || "Okr7JOG8xvTuMbU+xVm/0vyXLMJod59ZTamKBYZ98KY=";
 
 
