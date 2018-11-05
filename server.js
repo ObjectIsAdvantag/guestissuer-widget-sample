@@ -84,8 +84,7 @@ app.get("/submit", function (req, res) {
     // Create the JWT Guest token
     try {
         // Expires in 30 seconds by default
-        let delay = process.env.JWT_EXPIRES || 30;
-        const expiresInSeconds = Math.round(Date.now() / 1000) + delay;
+        const expiresInSeconds = Math.round(Date.now() / 1000) + 30;
 
         const jwt = require('jsonwebtoken');
         const guestToken = jwt.sign(
