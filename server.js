@@ -115,7 +115,7 @@ app.get("/submit", function (req, res) {
                 }
 
                 const accessToken = response.data.token;
-                debug(`Fetched access token, valid for: ${response.data.expiresIn} seconds:\n${accessToken}`);
+                debug(`Fetched access token, valid for: ${response.data.expiresIn} seconds\n${accessToken}`);
 
                 // Display Space Widget
                 const widget = showSpaceWidget(req.query.username, accessToken, req.query.toPerson);
@@ -161,7 +161,7 @@ function showSpaceWidget(username, token, email) {
 
 
 // Starts the Web App
-var port = process.env.PORT || 4321;
+var port = process.env.PORT || 8080;
 app.listen(port, function () {
     console.log("Webex Guest Issuer app started on port: " + port);
 });
