@@ -12,7 +12,9 @@
             "env": {
                 "NODE_ENV": "development",
                 "DEBUG": "lab*",
-                "PORT": "4321"
+                "PORT": "4321",
+                "GUEST_ISSUER" : "please add yours",
+                "GUEST_SECRET" : "please add yours"
             }
         }
     ]
