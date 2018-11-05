@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>OAuth Integration</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://code.s4d.io/widget-space/production/main.css">
+</head>
+
+<body>
+  <h1>Webex Issuer App example: Space Widget</h1>
+
+  <p>Welcome <%= username %></p>
+  <p>Your chat and video call space is ready</p>
+
+  <div id="space" style="width: 750px; height: 500px;"       
+    data-toggle="ciscospark-space"
+    data-initial-activity="message"
+    data-access-token=<%= token %>
+    data-to-person-email=<%= email %>
+  </div>
+
+  <script src="https://code.s4d.io/widget-space/production/bundle.js"></script>
+
+</body>
+
+</html>

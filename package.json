@@ -1,0 +1,20 @@
+{
+  "name": "guestissuer-lab",
+  "version": "0.1.0",
+  "description": "an example of Webex Guest Issuer application in Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Stève Sfartz (Cisco DevNet) <stsfartz@cisco.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "debug": "^4.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "node-env-file": "0.1.8",
+    "request": "^2.88.0"
+  }
+}
