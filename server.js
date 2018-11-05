@@ -1,13 +1,13 @@
 //
-// Copyright (c) 2016 Cisco Systems
+// Copyright (c) 2018 Cisco Systems
 // Licensed under the MIT License 
 //
 
 /*
- * a Webex Teams Integration based on Node.js, that acts on user's behalf.
- * implements the Webex OAuth flow, to retreive an API access tokens.
+ * a Webex Teams App based on Node.js
+ * that implements the Webex Permanent Guest Issuer flow, to retreive an API access tokens.
  * 
- * See documentation: https://developer.webex.com/authentication.html
+ * See documentation: https://developer.webex.com/guest-issuer.html
  * 
  */
 
@@ -29,7 +29,7 @@ var app = express();
 //   - then fill in your Guest Isser App properties below
 //
 var guestId = process.env.GUEST_ID || "Y2lzY29zcGFyazovL3VzL09SR0FOSVpBVElPTi9jMGU0OWU3NS1lMGYwLTRjY2QtOWMzZi04OWE0YTQ2ZDM1ODA";
-var guestSecret = process.env.GUEST_SECRET || "Okr7JOG8xvTuMbU+xVm/0vyXLMJod59ZTamKBYZ98KY=";
+var guestSecret = process.env.GUEST_SECRET || "jQxq86dshkP0jKgNa519n0SvySCZ6tQ708ksejOg8Tk=";
 
 
 //
@@ -118,9 +118,23 @@ app.get("/submit", function (req, res) {
                 debug(`Fetched access token, valid for: ${response.data.expiresIn} seconds\n${accessToken}`);
 
                 // Display Space Widget
-                const widget = showSpaceWidget(req.query.username, accessToken, req.query.toPerson);
-                res.send(widget);
-                return;
+                try {
+                    const read = require("fs").readFileSync;
+                    const join = require("path").join;
+                    const template = read(join(__dirname, './www/widget.ejs'), 'utf8');
+                    var widget = require("ejs").compile(template)({
+                        "username": req.query.username,
+                        "token": accessToken,
+                        "email": req.query.toPerson
+                    });
+                    res.send(widget);
+                    return;
+                }
+                catch (err) {
+                    debug("error compiling the template:" + err.message);
+                    res.send("<h1>App sample could not complete</h1><p>error compiling the template.</p>");
+                    return;
+                }
             })
             .catch(err => {
                 switch (err.code) {
@@ -132,6 +146,16 @@ app.get("/submit", function (req, res) {
 
                         if (err.response && (err.response.status >= 400) && (err.response.status < 500)) {
                             debug(`Invalid Guest token: ${err.response.data.message}`);
+
+                            if (err.response.status == 401) {
+                                res.send("<h1>App sample could not complete</h1><p>Invalid guest issuer secret</p>");
+                                return;
+                            }
+
+                            if (err.response.status == 404) {
+                                res.send("<h1>App sample could not complete</h1><p>Invalid guest issuer identifier</p>");
+                                return;
+                            }
                         }
                         break;
                 }
@@ -146,18 +170,6 @@ app.get("/submit", function (req, res) {
         return;
     }
 });
-
-function showSpaceWidget(username, token, email) {
-    var read = require("fs").readFileSync;
-    var join = require("path").join;
-    var str = read(join(__dirname, './www/widget.ejs'), 'utf8');
-    var ejs = require("ejs");
-    return ejs.compile(str)({
-        "username": username,
-        "token": token,
-        "email": email
-    });
-}
 
 
 // Starts the Web App
