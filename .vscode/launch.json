@@ -12,7 +12,7 @@
             "env": {
                 "NODE_ENV": "development",
                 "DEBUG": "lab*",
-                "PORT": "8080"
+                "PORT": "4321"
             }
         }
     ]

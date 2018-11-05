@@ -27,7 +27,7 @@ DEBUG=lab* node server.js
 
 You're all set, the app sample is live! 
 
-Reach to the integration home page from a Web browser: open [http://localhost:8080](http://localhost:8080)
+Reach to the home page from a Web browser: open [http://localhost:4321](http://localhost:8080)
 
 
 ## Roadmap

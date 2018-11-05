@@ -31,13 +31,10 @@ var app = express();
 var guestId = process.env.GUEST_ID || "Y2lzY29zcGFyazovL3VzL09SR0FOSVpBVElPTi9jMGU0OWU3NS1lMGYwLTRjY2QtOWMzZi04OWE0YTQ2ZDM1ODA";
 var guestSecret = process.env.GUEST_SECRET || "Okr7JOG8xvTuMbU+xVm/0vyXLMJod59ZTamKBYZ98KY=";
 
+
 //
-// Step 1: initiate the OAuth flow
-//   - serves a Web page with a link to the Webex OAuth flow initializer
+// Step 1: generate the home page
 //
-// Initiate the OAuth flow from the 'index.ejs' template  
-// ------------------------------------------------------------- 
-// -- Comment this section to initiate the flow from  static html page
 var read = require("fs").readFileSync;
 var join = require("path").join;
 var str = read(join(__dirname, '/www/index.ejs'), 'utf8');
@@ -50,7 +47,6 @@ app.get("/index.html", function (req, res) {
 app.get("/", function (req, res) {
     res.redirect("/index.html");
 });
-
 // -------------------------------------------------------------
 // Statically serve the "/www" directory
 // WARNING: Do not move the 2 lines of code below, as we need this exact precedance order for the static and dynamic HTML generation to work correctly all together
@@ -60,7 +56,10 @@ app.use("/", express.static(path.join(__dirname, 'www')));
 
 
 //
-// Step 2: process Form submission
+// Step 2: process the form submission
+//     - generate a JWT Guest token (for the user data)
+//     - fetch an access token from Webex cloud
+//     - and show the widget space 
 //
 app.get("/submit", function (req, res) {
     debug("form submission callback hit");
@@ -162,7 +161,7 @@ function showSpaceWidget(username, token, email) {
 
 
 // Starts the Web App
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 4321;
 app.listen(port, function () {
     console.log("Webex Guest Issuer app started on port: " + port);
 });
