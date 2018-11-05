@@ -4,7 +4,7 @@ This example illustrates how to create a server-side Webex Guest Issuer applicat
 
 For testing purpose, this example leverages a pre-registered Webex Guest Issuer Application.
 
-**If you are part of a Webex paying organization, you can create your own application, and place your Guest Issuer id and secret in [server.js](./server.js)**
+**If you are part of a Webex paying organization, you can [create your own Guest application](https://developer.webex.com/add-guest.html), and place your Guest Issuer id and secret in [server.js](./server.js#L31)**
 
 
 ## Quick start on Glitch
@@ -32,4 +32,4 @@ Reach to the home page from a Web browser: open [http://localhost:4321](http://l
 
 ## Roadmap
 
-- Add a session: https://github.com/expressjs/session
+- Add a server-side managed session: https://github.com/expressjs/session
