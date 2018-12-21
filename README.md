@@ -11,7 +11,7 @@ For testing purpose, this example leverages a pre-registered Webex Guest Issuer 
 
 Click [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/ObjectIsAdvantag/guestissuer-lab)
 
-Open the `.env` file and paste your Guest Issuer application identifier and secret.
+Open the `.env` file and paste your ['Guest Issuer'](https://developer.webex.com/docs/guest-issuer) identifier and secret for your application.
 
 Your app is all set.
 
