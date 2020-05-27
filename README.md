@@ -11,9 +11,11 @@ For testing purpose, this example leverages a pre-registered Webex Guest Issuer 
 
 Click [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/ObjectIsAdvantag/guestissuer-lab)
 
-Open the `.env` file and paste your ['Guest Issuer'](https://developer.webex.com/docs/guest-issuer) identifier and secret for your application.
+Open the `.env` file and paste the ['Guest Issuer'](https://developer.webex.com/docs/guest-issuer) **identifier and secret** for your application.
 
 Your app is all set.
+
+Click `Show` to run the demo
 
 
 ## Run the sample locally
@@ -22,14 +24,24 @@ Your app is all set.
 git clone https://github.com/ObjectIsAdvantag/guestissuer-lab
 cd guestissuer-lab
 npm install
-DEBUG=lab* node server.js
+DEBUG=lab* GUEST_ISSUER="XXXXX" GUEST_SECRET="YYYYY" node server.js
 ```
 
-You're all set, the app sample is live! 
-
-Reach to the home page from a Web browser: open [http://localhost:8080](http://localhost:8080)
 
 
 ## Roadmap
 
 - Add a server-side managed session: https://github.com/expressjs/session
+
+
+## Screenshots
+
+First enter the info for the guest user, and the email of the Webex Teams user you want to contact:
+
+![](./docs/demo_home.png)
+<br/>
+<br/>
+
+Then, simply chat, call, share files:
+
+![](./docs/demo_widget.png)
