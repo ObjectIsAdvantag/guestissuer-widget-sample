@@ -1,6 +1,6 @@
 {
-  "name": "guestissuer-lab",
-  "version": "0.2.0",
+  "name": "guestissuer-widget-sample",
+  "version": "0.2.0npm ",
   "description": "an example of Webex Guest Issuer application in Node.js",
   "main": "server.js",
   "scripts": {
