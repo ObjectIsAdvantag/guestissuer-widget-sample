@@ -1,10 +1,12 @@
 # Example of Webex Guest Issuer App in Node.js
 
 This example illustrates how to create a server-side Webex Guest Issuer application.
+See [screenshots](#screenshots) below for more details about the app.
 
-For testing purpose, this example leverages a pre-registered Webex Guest Issuer Application.
-
-**If you are part of a Webex paying organization, you can [create your own Guest application](https://developer.webex.com/add-guest.html), and place your Guest Issuer id and secret in [server.js](./server.js#L31)**
+Pre-requisites:
+- **you must be part of a Webex paying organization** to use the Webex Guest feature
+- [create a new Guest application](https://developer.webex.com/my-apps/new/guest-issuer)
+- place your Guest Issuer id and secret in the [.env](./env.js#L15) file or on the command line (see quickstart on glitch and on the command line below)
 
 
 ## Quick start on Glitch
@@ -26,7 +28,6 @@ cd guestissuer-lab
 npm install
 DEBUG=lab* GUEST_ISSUER="XXXXX" GUEST_SECRET="YYYYY" node server.js
 ```
-
 
 
 ## Roadmap
