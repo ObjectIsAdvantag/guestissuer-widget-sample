@@ -4,7 +4,7 @@
 //
 
 /*
- * a Webex Teams App based on Node.js
+ * a Webex Messaging application based on Node.js
  * that implements the Webex Permanent Guest Issuer flow, to retreive an API access tokens.
  * 
  * See documentation: https://developer.webex.com/guest-issuer.html
@@ -109,7 +109,7 @@ app.get("/submit", function (req, res) {
             .then(response => {
                 if (!response.data || !response.data.token) {
                     debug("no token found in response: " + response);
-                    res.send("<h1>App sample could not complete</h1><p>Could not contact Webex Teams API to fetch an access token.</p>");
+                    res.send("<h1>App sample could not complete</h1><p>Could not contact Webex API to fetch an access token.</p>");
                     return;
                 }
 

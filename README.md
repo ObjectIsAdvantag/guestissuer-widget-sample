@@ -1,7 +1,6 @@
 # Example of Webex Guest Issuer App in Node.js
 
-This example illustrates how to create a server-side Webex Guest Issuer application that create an instant Teams Widget 
-See [screenshots](#screenshots) below for more details about the app.
+This example illustrates how to create a server-side Webex Guest Issuer application that create an instant Webex Widget, see [screenshots](#screenshots) below for more details about the app.
 
 Pre-requisites:
 - **you must be part of a Webex paying organization** to use the Webex Guest feature
@@ -37,7 +36,7 @@ DEBUG=lab* GUEST_ISSUER="XXXXX" GUEST_SECRET="YYYYY" node server.js
 
 ## Screenshots
 
-First enter the info for the guest user, and the email of the Webex Teams user you want to contact:
+First enter the info for the guest user, and the email of the Webex user you want to contact:
 
 ![](./docs/demo_home.png)
 <br/>
